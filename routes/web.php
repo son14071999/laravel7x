@@ -19,3 +19,9 @@ Route::get('/', function () {
 Route::get('/name/{name}/{age}', function ($naame, $tuoi){
     return $naame.'---'.$tuoi;
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user', 'HomeController@index')->middleware('auth');
+Route::resource('bai-viet', 'ArticleController');
